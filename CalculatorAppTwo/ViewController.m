@@ -10,18 +10,44 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property UIButton *operator;
+@property int numberA;
+@property int numberB;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)buttonPressed:(UIButton *)sender {
+    self.label.text = sender.currentTitle;
+    if (numberA == nil) {
+        self.numberA = [self.label.text intValue];
+    } else {
+        self.numberB = [self.label.text intValue];
+    }
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)plusButtonTapped:(UIButton *)sender {
+
+    if (self.operator == @"+") {
+        findValue = numberA + numberB
+    }
 }
+
+- (IBAction)minusButtonPressed:(UIButton *)sender {
+
+    if (self.operator == @"-") {
+        findValue = numberA - numberB
+    }
+}
+
+- (IBAction)equalsButtonPressed:(UIButton *)sender {
+}
+
 
 @end
